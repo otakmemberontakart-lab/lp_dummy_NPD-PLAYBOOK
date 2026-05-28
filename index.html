@@ -7,21 +7,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg-main: #0D1B2A;
-    --bg-alt: #101F30;
-    --bg-card: #1A2736;
-    --ivory: #F0EBE0;
-    --body-text: #A8A39D;
-    --amber: #C9893F;
-    --amber-deep: #A8702F;
-    --teal: #2F7472;
-    --divider: #1E2F3E;
-    --max-w: 700px;
+    --bg-main:   #2D1F2E;
+    --bg-alt:    #3A2840;
+    --bg-card:   #432E48;
+    --ivory:     #EDE8F0;
+    --body-text: #B8AEBE;
+    --amber:     #C9893F;
+    --amber-deep:#A8702F;
+    --teal:      #7ABFB8;
+    --divider:   #4A3350;
+    --max-w:     700px;
   }
 
   html { scroll-behavior: smooth; }
@@ -36,7 +35,6 @@
     overflow-x: hidden;
   }
 
-  /* ─── NOISE TEXTURE OVERLAY ─── */
   body::before {
     content: '';
     position: fixed;
@@ -49,7 +47,6 @@
 
   section, header, footer { position: relative; z-index: 1; }
 
-  /* ─── TYPOGRAPHY ─── */
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(32px, 5vw, 58px);
@@ -58,7 +55,6 @@
     color: var(--ivory);
     letter-spacing: -0.02em;
   }
-
   h2 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(24px, 3.5vw, 36px);
@@ -66,7 +62,6 @@
     line-height: 1.25;
     color: var(--ivory);
   }
-
   h3 {
     font-family: 'DM Sans', sans-serif;
     font-size: clamp(14px, 1.5vw, 15px);
@@ -76,50 +71,28 @@
     color: var(--amber);
     margin-bottom: 16px;
   }
-
   p { color: var(--body-text); margin-bottom: 20px; }
   p:last-child { margin-bottom: 0; }
-
   strong { color: var(--ivory); font-weight: 600; }
 
-  /* ─── LAYOUT ─── */
-  .container {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+  .section { padding: 96px 0; }
+  .section-alt { background-color: var(--bg-alt); }
+  .divider { width: 48px; height: 2px; background: var(--amber); margin: 24px 0 32px; }
 
-  .section {
-    padding: 96px 0;
-  }
-
-  .section-alt {
-    background-color: var(--bg-alt);
-  }
-
-  .divider {
-    width: 48px;
-    height: 2px;
-    background: var(--amber);
-    margin: 24px 0 32px;
-  }
-
-  /* ─── ABOVE THE FOLD ─── */
+  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 0;
     overflow: hidden;
   }
-
   .hero-copy {
-    padding: 80px 48px 80px 48px;
+    padding: 80px 48px;
     max-width: 560px;
     margin-left: auto;
   }
-
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -133,7 +106,6 @@
     opacity: 0;
     animation: fadeUp 0.6s ease-out 0.1s forwards;
   }
-
   .hero-eyebrow::before {
     content: '';
     display: block;
@@ -141,13 +113,11 @@
     height: 1px;
     background: var(--amber);
   }
-
   .hero h1 {
     opacity: 0;
     animation: fadeUp 0.7s ease-out 0.25s forwards;
     margin-bottom: 28px;
   }
-
   .hero-sub {
     font-size: 17px;
     line-height: 1.7;
@@ -156,18 +126,15 @@
     animation: fadeUp 0.7s ease-out 0.4s forwards;
     margin-bottom: 40px;
   }
-
   .hero-cta-wrap {
     opacity: 0;
     animation: fadeUp 0.7s ease-out 0.55s forwards;
   }
-
   .hero-image-wrap {
     height: 100vh;
     position: relative;
     overflow: hidden;
   }
-
   .hero-image-wrap::before {
     content: '';
     position: absolute;
@@ -175,7 +142,6 @@
     background: linear-gradient(to right, var(--bg-main) 0%, transparent 30%);
     z-index: 1;
   }
-
   .hero-image-wrap img {
     width: 100%;
     height: 100%;
@@ -184,12 +150,13 @@
     display: block;
     will-change: transform;
   }
+  .hero-image-mobile { display: none; }
 
-  /* ─── CTA BUTTON ─── */
+  /* ── BUTTON ── */
   .btn {
     display: inline-block;
     background: var(--amber);
-    color: #0D1B2A;
+    color: #1A0F1B;
     font-family: 'DM Sans', sans-serif;
     font-size: 15px;
     font-weight: 700;
@@ -203,42 +170,19 @@
     animation: ctaPulse 2.5s ease-in-out infinite;
     line-height: 1;
   }
-
   .btn:hover {
     background-color: var(--amber-deep);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(201,137,63,0.3);
+    box-shadow: 0 8px 24px rgba(201,137,63,0.35);
     animation: none;
   }
-
   .btn-full { width: 100%; text-align: center; display: block; }
 
-  .btn-secondary {
-    background: transparent;
-    color: var(--ivory);
-    border: 1px solid rgba(240,235,224,0.2);
-    animation: none;
-  }
+  /* ── AGITASI ── */
+  .agitasi p { font-size: 18px; line-height: 1.8; }
+  .agitasi p.large { font-size: clamp(18px, 2.5vw, 22px); color: var(--ivory); opacity: 0.9; }
 
-  .btn-secondary:hover {
-    background: rgba(240,235,224,0.05);
-    transform: translateY(-2px);
-    box-shadow: none;
-  }
-
-  /* ─── AGITASI ─── */
-  .agitasi p {
-    font-size: 18px;
-    line-height: 1.8;
-  }
-
-  .agitasi p.large {
-    font-size: clamp(18px, 2.5vw, 22px);
-    color: var(--ivory);
-    opacity: 0.9;
-  }
-
-  /* ─── SOCIAL PROOF ─── */
+  /* ── QUOTE CARDS ── */
   .quote-card {
     background: var(--bg-card);
     border-left: 3px solid transparent;
@@ -249,21 +193,17 @@
     position: relative;
     overflow: hidden;
   }
-
   .quote-card::before {
     content: '"';
     position: absolute;
-    top: -12px;
-    left: 20px;
+    top: -12px; left: 20px;
     font-family: 'Playfair Display', serif;
     font-size: 96px;
     color: var(--amber);
     opacity: 0.1;
     line-height: 1;
   }
-
   .quote-card.visible { border-color: var(--amber); }
-
   .quote-text {
     font-family: 'Playfair Display', serif;
     font-style: italic;
@@ -274,12 +214,8 @@
     margin-bottom: 0;
   }
 
-  /* ─── PRODUCT INTRO ─── */
-  .product-mockup {
-    text-align: center;
-    margin: 48px 0;
-  }
-
+  /* ── PRODUCT ── */
+  .product-mockup { text-align: center; margin: 48px 0; }
   .product-mockup img {
     width: 100%;
     max-width: 480px;
@@ -288,19 +224,11 @@
     display: inline-block;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
-
   .product-mockup img:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 56px 100px rgba(0,0,0,0.6);
   }
-
-  .framework-badges {
-    display: flex;
-    gap: 12px;
-    margin: 32px 0;
-    flex-wrap: wrap;
-  }
-
+  .framework-badges { display: flex; gap: 12px; margin: 32px 0; flex-wrap: wrap; }
   .badge {
     background: var(--bg-card);
     border: 1px solid var(--divider);
@@ -313,9 +241,8 @@
     border-radius: 2px;
   }
 
-  /* ─── WHAT YOU GET ─── */
+  /* ── ITEMS ── */
   .item-list { list-style: none; }
-
   .item {
     display: flex;
     gap: 20px;
@@ -323,275 +250,77 @@
     padding: 28px 0;
     border-bottom: 1px solid var(--divider);
   }
-
   .item:last-child { border-bottom: none; }
-
   .item-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
+    width: 44px; height: 44px; min-width: 44px;
     background: var(--bg-card);
     border: 1px solid var(--divider);
     border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     margin-top: 2px;
   }
+  .item-icon svg { width: 20px; height: 20px; stroke: var(--amber); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .item-title { font-weight: 700; color: var(--ivory); font-size: 17px; margin-bottom: 6px; display: block; }
+  .item-bonus-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-left: 8px; }
 
-  .item-icon svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--amber);
-    fill: none;
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .item-title {
-    font-weight: 700;
-    color: var(--ivory);
-    font-size: 17px;
-    margin-bottom: 6px;
-    display: block;
-  }
-
-  .item-bonus-tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-left: 8px;
-    opacity: 0.9;
-  }
-
-  /* ─── OBJECTION ─── */
-  .objection {
-    border-left: 2px solid var(--divider);
-    padding-left: 24px;
-    margin-bottom: 36px;
-    transition: border-color 0.3s ease;
-  }
-
+  /* ── OBJECTION ── */
+  .objection { border-left: 2px solid var(--divider); padding-left: 24px; margin-bottom: 36px; transition: border-color 0.3s ease; }
   .objection:hover { border-color: var(--amber); }
-
-  .objection-q {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 18px;
-    color: var(--ivory);
-    opacity: 0.7;
-    margin-bottom: 10px;
-    display: block;
-  }
-
+  .objection-q { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--ivory); opacity: 0.7; margin-bottom: 10px; display: block; }
   .objection p { margin-bottom: 0; }
 
-  /* ─── CTA SECTION ─── */
-  .cta-section {
-    overflow: hidden;
-    position: relative;
-  }
-
-  .cta-image-wrap {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .cta-image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.18;
-    filter: grayscale(30%);
-  }
-
+  /* ── CTA SECTION ── */
+  .cta-section { overflow: hidden; position: relative; }
+  .cta-image-wrap { position: absolute; inset: 0; z-index: 0; }
+  .cta-image-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.22; filter: grayscale(20%); }
   .cta-image-wrap::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, var(--bg-alt) 0%, transparent 30%, transparent 70%, var(--bg-alt) 100%);
+    background: linear-gradient(to bottom, var(--bg-alt) 0%, rgba(58,40,64,0.6) 40%, rgba(58,40,64,0.6) 60%, var(--bg-alt) 100%);
   }
+  .cta-content { position: relative; z-index: 1; text-align: center; padding: 100px 24px; }
+  .price-display { font-family: 'Playfair Display', serif; font-size: clamp(48px, 7vw, 72px); font-weight: 900; color: var(--amber); line-height: 1; margin: 24px 0 8px; }
+  .price-label { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; color: var(--body-text); margin-bottom: 40px; }
+  .trust-badges { display: flex; justify-content: center; gap: 24px; margin-top: 24px; flex-wrap: wrap; }
+  .trust-badge { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--body-text); }
+  .trust-badge svg { width: 16px; height: 16px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-  .cta-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 100px 24px;
-  }
+  /* ── CLOSING ── */
+  .closing { text-align: center; padding: 96px 24px; }
+  .closing h2 { max-width: 520px; margin: 0 auto 24px; }
+  .closing p { max-width: 480px; margin: 0 auto 20px; }
 
-  .price-display {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 7vw, 72px);
-    font-weight: 900;
-    color: var(--amber);
-    line-height: 1;
-    margin: 24px 0 8px;
-  }
+  /* ── FOOTER ── */
+  footer { border-top: 1px solid var(--divider); padding: 32px 24px; text-align: center; }
+  footer p { font-size: 13px; color: var(--body-text); opacity: 0.5; margin: 0; }
 
-  .price-label {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--body-text);
-    margin-bottom: 40px;
-  }
-
-  .trust-badges {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-top: 24px;
-    flex-wrap: wrap;
-  }
-
-  .trust-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--body-text);
-  }
-
-  .trust-badge svg {
-    width: 16px;
-    height: 16px;
-    stroke: var(--teal);
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  /* ─── CLOSING ─── */
-  .closing {
-    text-align: center;
-    padding: 96px 24px;
-  }
-
-  .closing h2 {
-    max-width: 520px;
-    margin: 0 auto 24px;
-  }
-
-  .closing p {
-    max-width: 480px;
-    margin: 0 auto 20px;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    border-top: 1px solid var(--divider);
-    padding: 32px 24px;
-    text-align: center;
-  }
-
-  footer p {
-    font-size: 13px;
-    color: var(--body-text);
-    opacity: 0.5;
-    margin: 0;
-  }
-
-  /* ─── SCROLL ANIMATIONS ─── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.65s ease-out, transform 0.65s ease-out;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease-out, transform 0.65s ease-out; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
 
-  /* ─── KEYFRAMES ─── */
+  /* ── KEYFRAMES ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
   @keyframes ctaPulse {
     0%, 100% { box-shadow: 0 0 0 0 rgba(201,137,63,0.45); }
     50%       { box-shadow: 0 0 0 12px rgba(201,137,63,0); }
   }
 
-  /* ─── MOBILE IMAGE (hidden on desktop) ─── */
-  .hero-image-mobile { display: none; }
-
-  /* ─── MOBILE ─── */
-  @media (max-width: 768px) {
-    .hero {
-      grid-template-columns: 1fr;
-      min-height: auto;
-    }
-
-    /* Desktop image panel: hidden on mobile */
-    .hero-image-wrap { display: none; }
-
-    /* Mobile image: show between h1 and subheadline */
-    .hero-image-mobile {
-      display: block;
-      width: calc(100% + 48px);
-      margin-left: -24px;
-      margin-right: -24px;
-      margin-top: 28px;
-      margin-bottom: 28px;
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 4/5;
-      max-height: 420px;
-    }
-
-    .hero-image-mobile::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 55%, var(--bg-main) 100%);
-    }
-
-    .hero-image-mobile img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
-    .hero-copy {
-      padding: 56px 24px 72px;
-      max-width: 100%;
-      margin: 0;
-    }
-
-    .section { padding: 72px 0; }
-
-    .btn { width: 100%; text-align: center; display: block; }
-
-    .trust-badges { gap: 16px; }
-
-    .framework-badges { gap: 8px; }
-
-    .cta-content { padding: 80px 24px; }
-  }
-
-  /* sticky CTA */
+  /* ── STICKY CTA ── */
   .sticky-cta {
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    z-index: 999;
-    background: rgba(13,27,42,0.93);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-top: 1px solid rgba(201,137,63,0.22);
+    z-index: 9999;
+    background: rgba(45,31,46,0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(201,137,63,0.25);
     padding: 14px 32px;
     display: flex;
     align-items: center;
@@ -599,71 +328,66 @@
     gap: 20px;
     transform: translateY(110%);
     transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
-    box-shadow: 0 -8px 40px rgba(0,0,0,0.45);
+    box-shadow: 0 -8px 40px rgba(0,0,0,0.5);
   }
   .sticky-cta.show { transform: translateY(0); }
-  .sticky-cta.hide { transform: translateY(110%); }
-  .sticky-cta-text { display:flex; flex-direction:column; gap:2px; min-width:0; }
-  .sticky-cta-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 15px; font-weight: 700;
-    color: var(--ivory);
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .sticky-cta-price {
-    font-size: 13px; font-weight: 600;
-    color: var(--amber); letter-spacing: 0.02em;
-  }
-  .sticky-cta .btn {
-    white-space: nowrap; flex-shrink: 0;
-    padding: 14px 28px; font-size: 14px; animation: none;
-  }
-  @media (max-width: 768px) {
-    .sticky-cta {
-      flex-direction: column; align-items: stretch;
-      gap: 10px; padding: 16px 20px 22px;
-    }
-    .sticky-cta-text {
-      flex-direction: row; align-items: center;
-      justify-content: space-between;
-    }
-    .sticky-cta-title { font-size: 14px; }
-    .sticky-cta .btn {
-      width: 100%; text-align: center;
-      display: block; padding: 16px 24px;
-    }
-  }
+  .sticky-cta-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .sticky-cta-title { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--ivory); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sticky-cta-price { font-size: 13px; font-weight: 600; color: var(--amber); letter-spacing: 0.02em; }
+  .sticky-cta .btn { white-space: nowrap; flex-shrink: 0; padding: 14px 28px; font-size: 14px; animation: none; }
 
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-image-wrap { display: none; }
+    .hero-image-mobile {
+      display: block;
+      width: calc(100% + 48px);
+      margin-left: -24px; margin-right: -24px;
+      margin-top: 28px; margin-bottom: 28px;
+      position: relative; overflow: hidden;
+      aspect-ratio: 4/5; max-height: 420px;
+    }
+    .hero-image-mobile::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 55%, var(--bg-main) 100%);
+    }
+    .hero-image-mobile img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .hero-copy { padding: 56px 24px 72px; max-width: 100%; margin: 0; }
+    .section { padding: 72px 0; }
+    .btn { width: 100%; text-align: center; display: block; }
+    .trust-badges { gap: 16px; }
+    .framework-badges { gap: 8px; }
+    .cta-content { padding: 80px 24px; }
+    .sticky-cta { flex-direction: column; align-items: stretch; gap: 10px; padding: 16px 20px 22px; }
+    .sticky-cta-text { flex-direction: row; align-items: center; justify-content: space-between; }
+    .sticky-cta-title { font-size: 14px; }
+    .sticky-cta .btn { width: 100%; text-align: center; display: block; padding: 16px 24px; animation: none; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════
-     ABOVE THE FOLD
-═══════════════════════════════════════ -->
+<!-- HERO -->
 <header class="hero">
   <div class="hero-copy">
     <span class="hero-eyebrow">Narcissist's Playbook</span>
     <h1>Orang NPD Selalu Punya Cara Bikin Kamu Ngerasa Salah — Bahkan Waktu Kamu Nggak Salah Apa-apa</h1>
-    <!-- Mobile image: tampil di antara h1 dan subheadline -->
     <div class="hero-image-mobile">
-      <img src="https://drive.google.com/thumbnail?id=10mtOLrIBVm0Jb6EhBp3aUPSKflCfD_Ft&sz=w1200" alt="Hero" loading="eager">
+      <img src="https://drive.google.com/thumbnail?id=1yRXN1Q7yA49uvxclpmWCVBi7htHqg7HO&sz=w1200" alt="Hero" loading="eager">
     </div>
     <p class="hero-sub">Orang NPD nggak pernah salah. Kamu nggak pernah bener. Dan entah kenapa kamu yang selalu ngerasa gila — padahal ada script di balik itu semua.</p>
     <div class="hero-cta-wrap">
       <a href="#beli" class="btn">Ya, Aku Mau Baca Permainan Mereka →</a>
     </div>
   </div>
-  <!-- Desktop image: tetap di kanan -->
   <div class="hero-image-wrap">
-    <img src="https://drive.google.com/thumbnail?id=10mtOLrIBVm0Jb6EhBp3aUPSKflCfD_Ft&sz=w1200" alt="Hero" id="heroImg" loading="eager">
+    <img src="https://drive.google.com/thumbnail?id=1yRXN1Q7yA49uvxclpmWCVBi7htHqg7HO&sz=w1200" alt="Hero" id="heroImg" loading="eager">
   </div>
 </header>
 
-
-<!-- ═══════════════════════════════════════
-     AGITASI
-═══════════════════════════════════════ -->
+<!-- AGITASI -->
 <section class="section agitasi">
   <div class="container">
     <h3>Kalau Ini Terasa Familiar</h3>
@@ -678,39 +402,30 @@
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     SOCIAL PROOF 1
-═══════════════════════════════════════ -->
+<!-- SOCIAL PROOF 1 -->
 <section class="section section-alt">
   <div class="container">
     <h3>Kamu Nggak Sendirian</h3>
     <div class="divider"></div>
-    <h2 class="reveal" style="margin-bottom: 40px;">Banyak yang pernah ada di posisi yang sama persis kayak kamu.</h2>
-
+    <h2 class="reveal" style="margin-bottom:40px;">Banyak yang pernah ada di posisi yang sama persis kayak kamu.</h2>
     <div class="quote-card reveal reveal-delay-1">
       <p class="quote-text">Hampir dua tahun aku ngerasa jadi "drama queen". Tiap kali sakit hati, dia bilang aku lebay. Sampai akhirnya aku ketemu satu pola yang namanya gaslighting — dan semuanya langsung masuk akal. Ternyata bukan aku yang gila.</p>
     </div>
-
     <div class="quote-card reveal reveal-delay-2">
       <p class="quote-text">Aku udah tahu istilah-istilahnya dari konten di sosmed. Tapi tetap nggak tahu harus ngomong apa waktu diprovokasi. Setelah punya script-nya, aku nggak gampang kebakar lagi.</p>
     </div>
-
     <div class="quote-card reveal reveal-delay-3">
       <p class="quote-text">Bosku selalu muter-mutar kenyataan sampai aku ngerasa yang salah selalu aku. Begitu aku mulai dokumentasi dan pakai respons yang pendek dan tenang — dinamikanya berubah.</p>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     INSIGHT / REFRAME
-═══════════════════════════════════════ -->
+<!-- INSIGHT -->
 <section class="section">
   <div class="container">
     <h3>Yang Sebenarnya Terjadi</h3>
     <div class="divider"></div>
-    <h2 class="reveal" style="margin-bottom: 24px;">Kamu nggak kurang sabar.<br>Kamu cuma belum tahu polanya.</h2>
+    <h2 class="reveal" style="margin-bottom:24px;">Kamu nggak kurang sabar.<br>Kamu cuma belum tahu polanya.</h2>
     <div class="reveal reveal-delay-1">
       <p>Orang NPD dan manipulatif punya cara kerja yang sama. Pola yang berulang. Script yang nyaris identik. Dan mereka tahu persis kalimat apa yang bikin kamu langsung ngerasa bersalah, defensif, atau ragu sama diri sendiri.</p>
       <p>Begitu kamu bisa lihat polanya — semuanya beda.</p>
@@ -719,153 +434,98 @@
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     PRODUCT INTRO
-═══════════════════════════════════════ -->
+<!-- PRODUCT INTRO -->
 <section class="section section-alt">
   <div class="container">
     <h3>Panduan Praktis</h3>
     <div class="divider"></div>
     <h2 class="reveal">Narcissist's Playbook</h2>
-    <p class="reveal reveal-delay-1" style="font-size: 18px; margin-top: 8px; margin-bottom: 32px;">Cara Membaca Permainan Orang NPD dan Manipulatif</p>
-
+    <p class="reveal reveal-delay-1" style="font-size:18px;margin-top:8px;margin-bottom:32px;">Cara Membaca Permainan Orang NPD dan Manipulatif</p>
     <div class="framework-badges reveal reveal-delay-1">
       <span class="badge">Identify</span>
       <span class="badge">Disarm</span>
       <span class="badge">Protect</span>
     </div>
-
     <div class="reveal reveal-delay-2">
       <p>Ini bukan buku psikologi. Bukan konten "cintai dirimu dulu."</p>
       <p>Ini panduan praktis — langsung ke intinya — buat kamu yang udah tahu sesuatu nggak beres, tapi belum tahu harus mulai dari mana.</p>
     </div>
-
     <div class="product-mockup reveal reveal-delay-3">
       <img src="https://drive.google.com/thumbnail?id=1HzvD1bHBk0a4TCCCT6WR-KaNFYR7eP5j&sz=w1200" alt="Narcissist's Playbook Mockup" loading="lazy">
     </div>
-
-    <div class="reveal">
-      <p><strong>Tiga hal yang akan kamu bisa lakukan setelah baca ini:</strong></p>
-    </div>
-    <ul class="item-list" style="margin-top: 8px;">
+    <div class="reveal"><p><strong>Tiga hal yang akan kamu bisa lakukan setelah baca ini:</strong></p></div>
+    <ul class="item-list" style="margin-top:8px;">
       <li class="item reveal reveal-delay-1">
-        <div class="item-icon">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        </div>
-        <div>
-          <span class="item-title">Kenali polanya</span>
-          <p style="margin:0; font-size:15px;">Baca pola manipulasi yang selama ini bikin kamu bingung dan ragu sama diri sendiri.</p>
-        </div>
+        <div class="item-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <div><span class="item-title">Kenali polanya</span><p style="margin:0;font-size:15px;">Baca pola manipulasi yang selama ini bikin kamu bingung dan ragu sama diri sendiri.</p></div>
       </li>
       <li class="item reveal reveal-delay-2">
-        <div class="item-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div>
-          <span class="item-title">Tahu harus ngomong apa</span>
-          <p style="margin:0; font-size:15px;">Ada script-nya, tinggal pakai. Nggak perlu mikir dari nol waktu lagi emosional.</p>
-        </div>
+        <div class="item-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div><span class="item-title">Tahu harus ngomong apa</span><p style="margin:0;font-size:15px;">Ada script-nya, tinggal pakai. Nggak perlu mikir dari nol waktu lagi emosional.</p></div>
       </li>
       <li class="item reveal reveal-delay-3">
-        <div class="item-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div>
-          <span class="item-title">Lindungi diri kamu</span>
-          <p style="margin:0; font-size:15px;">Bahkan kalau kamu belum bisa atau belum siap pergi sekalipun.</p>
-        </div>
+        <div class="item-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><span class="item-title">Lindungi diri kamu</span><p style="margin:0;font-size:15px;">Bahkan kalau kamu belum bisa atau belum siap pergi sekalipun.</p></div>
       </li>
     </ul>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     WHAT YOU GET
-═══════════════════════════════════════ -->
+<!-- WHAT YOU GET -->
 <section class="section">
   <div class="container">
     <h3>Yang Kamu Dapat</h3>
     <div class="divider"></div>
-    <h2 class="reveal" style="margin-bottom: 40px;">Satu paket. Langsung bisa dipakai.</h2>
-
+    <h2 class="reveal" style="margin-bottom:40px;">Satu paket. Langsung bisa dipakai.</h2>
     <ul class="item-list">
       <li class="item reveal">
-        <div class="item-icon">
-          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        </div>
-        <div>
-          <span class="item-title">Narcissist's Playbook — Ebook Utama</span>
-          <p style="margin:0; font-size:15px;">Dari cara baca pola — love bombing, gaslighting, guilt-tripping, silent treatment, trauma bond — sampai cara merespons dan melindungi diri. Ada skenario nyata: pasangan, mantan, orang tua, bos, rekan kerja.</p>
-        </div>
+        <div class="item-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <div><span class="item-title">Narcissist's Playbook — Ebook Utama</span><p style="margin:0;font-size:15px;">Dari cara baca pola — love bombing, gaslighting, guilt-tripping, silent treatment, trauma bond — sampai cara merespons dan melindungi diri. Ada skenario nyata: pasangan, mantan, orang tua, bos, rekan kerja.</p></div>
       </li>
       <li class="item reveal reveal-delay-1">
-        <div class="item-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
-        <div>
-          <span class="item-title">The Manipulation Decoder Kit <span class="item-bonus-tag">Bonus 1</span></span>
-          <p style="margin:0; font-size:15px;">Checklist untuk scan pola manipulasi + template Reality Anchor Log. Biar kamu nggak gampang dibikin ragu sama kejadian yang udah kamu alami sendiri.</p>
-        </div>
+        <div class="item-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div><span class="item-title">The Manipulation Decoder Kit <span class="item-bonus-tag">Bonus 1</span></span><p style="margin:0;font-size:15px;">Checklist untuk scan pola manipulasi + template Reality Anchor Log. Biar kamu nggak gampang dibikin ragu sama kejadian yang udah kamu alami sendiri.</p></div>
       </li>
       <li class="item reveal reveal-delay-2">
-        <div class="item-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div>
-          <span class="item-title">The Disarm & Protect Scriptbook <span class="item-bonus-tag">Bonus 2</span></span>
-          <p style="margin:0; font-size:15px;">Script siap pakai: gray rock, yellow rock, boundary script, kalimat keluar dari debat melingkar. Tinggal pilih mana yang pas buat situasi kamu.</p>
-        </div>
+        <div class="item-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><span class="item-title">The Disarm & Protect Scriptbook <span class="item-bonus-tag">Bonus 2</span></span><p style="margin:0;font-size:15px;">Script siap pakai: gray rock, yellow rock, boundary script, kalimat keluar dari debat melingkar. Tinggal pilih mana yang pas buat situasi kamu.</p></div>
       </li>
     </ul>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     SOCIAL PROOF 2
-═══════════════════════════════════════ -->
+<!-- SOCIAL PROOF 2 -->
 <section class="section section-alt">
   <div class="container">
     <h3>Yang Orang Rasain Setelahnya</h3>
     <div class="divider"></div>
-    <h2 class="reveal" style="margin-bottom: 40px;">Yang orang rasain setelah baca panduan ini.</h2>
-
+    <h2 class="reveal" style="margin-bottom:40px;">Yang orang rasain setelah baca panduan ini.</h2>
     <div class="quote-card reveal">
       <p class="quote-text">Aku tadinya selalu kepancing buat jelasin diri panjang lebar tiap kali dituduh. Setelah mulai pakai respons yang pendek, debatnya nggak lagi makan waktu berjam-jam.</p>
     </div>
-
     <div class="quote-card reveal reveal-delay-1">
       <p class="quote-text">Untuk pertama kalinya aku bisa kasih nama ke apa yang aku rasain. Bukan cuma "ini toxic" — tapi bisa bilang persis ini polanya apa. Dan itu aja udah bikin aku ngerasa jauh lebih waras.</p>
     </div>
-
     <div class="quote-card reveal reveal-delay-2">
       <p class="quote-text">Aku mulai pakai Reality Anchor Log — bukan untuk "melawan" — tapi untuk ngingetin diriku sendiri bahwa kejadian itu nyata, bukan imajinasinya.</p>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     OBJECTION HANDLING
-═══════════════════════════════════════ -->
+<!-- OBJECTION -->
 <section class="section">
   <div class="container">
     <h3>Sebelum Kamu Ragu</h3>
     <div class="divider"></div>
-    <h2 class="reveal" style="margin-bottom: 40px;">Kalau kamu lagi mikir ini...</h2>
-
+    <h2 class="reveal" style="margin-bottom:40px;">Kalau kamu lagi mikir ini...</h2>
     <div class="objection reveal">
       <span class="objection-q">"Tapi dia kadang baik banget kok."</span>
       <p>Iya, dan itu justru yang bikin bingung. Kebaikan yang muncul setelah dia nyakitin bukan selalu bukti dia berubah — itu sering bagian dari polanya.</p>
     </div>
-
     <div class="objection reveal reveal-delay-1">
       <span class="objection-q">"Tapi aku belum bisa pergi."</span>
       <p>Panduan ini bukan soal pergi atau nggak. Ini soal gimana kamu tetap waras, punya batasan, dan nggak terus kehilangan dirimu — di situasi yang belum bisa kamu tinggalkan sekalipun.</p>
     </div>
-
     <div class="objection reveal reveal-delay-2">
       <span class="objection-q">"Tapi aku takut salah labelin orang."</span>
       <p>Buku ini bukan soal labeling. Ini soal mengenali pola — supaya kamu tahu apa yang lagi terjadi ke kamu.</p>
@@ -873,134 +533,92 @@
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     CTA UTAMA
-═══════════════════════════════════════ -->
+<!-- CTA UTAMA -->
 <section class="section-alt cta-section" id="beli">
   <div class="cta-image-wrap">
-    <img src="https://drive.google.com/thumbnail?id=1N1Lwew3-K_LFeJpiiW8iCgP3JGmybKh4&sz=w1200" alt="" loading="lazy" aria-hidden="true">
+    <img src="https://drive.google.com/thumbnail?id=1-Swn0xZ55_dsJLJSuObjEcMCEGuOn_U3&sz=w1200" alt="" loading="lazy" aria-hidden="true">
   </div>
   <div class="cta-content">
     <div class="container">
       <h3 class="reveal" style="text-align:center;">Ambil Sekarang</h3>
-      <h2 class="reveal reveal-delay-1" style="max-width:480px; margin: 0 auto 8px; text-align:center;">Satu panduan. Script yang langsung bisa dipakai.</h2>
+      <h2 class="reveal reveal-delay-1" style="max-width:480px;margin:0 auto 8px;text-align:center;">Satu panduan. Script yang langsung bisa dipakai.</h2>
       <div class="price-display reveal reveal-delay-2">Rp178.000</div>
       <p class="price-label reveal reveal-delay-2">Ebook utama + 2 bonus — akses seumur hidup</p>
-      <div class="reveal reveal-delay-3" style="max-width: 360px; margin: 0 auto;">
+      <div class="reveal reveal-delay-3" style="max-width:360px;margin:0 auto;">
         <a href="#" class="btn btn-full">→ Ya, Aku Mau Mulai Baca Polanya Sekarang</a>
         <div class="trust-badges">
-          <span class="trust-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Akses seumur hidup
-          </span>
-          <span class="trust-badge">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Langsung bisa diunduh
-          </span>
-          <span class="trust-badge">
-            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            Pembayaran aman
-          </span>
+          <span class="trust-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Akses seumur hidup</span>
+          <span class="trust-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Langsung bisa diunduh</span>
+          <span class="trust-badge"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Pembayaran aman</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     CLOSING
-═══════════════════════════════════════ -->
+<!-- CLOSING -->
 <section class="closing">
   <div class="container">
-    <h3 class="reveal" style="text-align:center; margin-bottom: 8px;">Terakhir</h3>
+    <h3 class="reveal" style="text-align:center;margin-bottom:8px;">Terakhir</h3>
     <h2 class="reveal reveal-delay-1">Kamu udah lama coba ngerti mereka.<br>Sekarang giliran kamu ngerti apa yang sebenarnya terjadi.</h2>
-    <div class="divider" style="margin: 28px auto;"></div>
+    <div class="divider" style="margin:28px auto;"></div>
     <p class="reveal reveal-delay-2">Bukan untuk balas dendam. Bukan biar kamu kelihatan "menang."</p>
     <p class="reveal reveal-delay-2">Tapi supaya kamu bisa berhenti capek di hal yang memang dirancang buat nguras kamu.</p>
-    <div class="reveal reveal-delay-3" style="margin-top: 40px; max-width: 320px; margin-left: auto; margin-right: auto;">
+    <div class="reveal reveal-delay-3" style="margin-top:40px;max-width:320px;margin-left:auto;margin-right:auto;">
       <a href="#beli" class="btn btn-full">→ Ambil Sekarang — Rp178.000</a>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <p>© 2025 Narcissist's Playbook. All rights reserved.</p>
 </footer>
 
-
-<!-- ═══════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════ -->
-<script>
-  // ── Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
-
-  // ── Hero parallax (desktop only)
-  const heroImg = document.getElementById('heroImg');
-  if (window.innerWidth > 768 && heroImg) {
-    window.addEventListener('scroll', () => {
-      heroImg.style.transform = `translateY(${window.scrollY * 0.15}px)`;
-    }, { passive: true });
-  }
-
-</script>
-
-
-<!-- STICKY CTA -->
+<!-- STICKY CTA — HTML dulu, JS setelahnya -->
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-cta-text">
     <span class="sticky-cta-title">Narcissist's Playbook</span>
-    <span class="sticky-cta-price">Rp178.000 &mdash; Akses Seumur Hidup</span>
+    <span class="sticky-cta-price">Rp178.000 — Akses Seumur Hidup</span>
   </div>
-  <a href="#beli" class="btn">&rarr; Ambil Sekarang</a>
+  <a href="#beli" class="btn">→ Ambil Sekarang</a>
 </div>
 
 <script>
-  // ── Sticky CTA (runs after DOM ready)
-  (function() {
-    var stickyCta  = document.getElementById('stickyCta');
-    var buySection = document.getElementById('beli');
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal');
+  var revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(function(el) { revealObs.observe(el); });
 
-    if (!stickyCta) return;
+  // Hero parallax desktop only
+  var heroImg = document.getElementById('heroImg');
+  if (window.innerWidth > 768 && heroImg) {
+    window.addEventListener('scroll', function() {
+      heroImg.style.transform = 'translateY(' + (window.scrollY * 0.15) + 'px)';
+    }, { passive: true });
+  }
 
-    function updateSticky() {
-      var scrollY = window.scrollY || window.pageYOffset;
-      var vh      = window.innerHeight;
+  // Sticky CTA — element already in DOM above this script
+  var stickyCta  = document.getElementById('stickyCta');
+  var buySection = document.getElementById('beli');
 
-      if (scrollY < vh * 0.8) {
-        stickyCta.classList.remove('show');
-        return;
-      }
-
-      if (buySection) {
-        var r = buySection.getBoundingClientRect();
-        if (r.top < vh && r.bottom > 0) {
-          stickyCta.classList.remove('show');
-          return;
-        }
-      }
-
-      stickyCta.classList.add('show');
+  function updateSticky() {
+    var scrollY = window.scrollY || window.pageYOffset;
+    var vh = window.innerHeight;
+    if (scrollY < vh * 0.8) { stickyCta.classList.remove('show'); return; }
+    if (buySection) {
+      var r = buySection.getBoundingClientRect();
+      if (r.top < vh && r.bottom > 0) { stickyCta.classList.remove('show'); return; }
     }
+    stickyCta.classList.add('show');
+  }
 
-    window.addEventListener('scroll', updateSticky, { passive: true });
-    updateSticky();
-  })();
+  window.addEventListener('scroll', updateSticky, { passive: true });
+  updateSticky();
 </script>
 
 </body>
